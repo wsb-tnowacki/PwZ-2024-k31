@@ -17,6 +17,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/kontakt', function () {
+    return view('kontakt');
+});
+
+Route::get('/onas', function () {
+    $zadania = [
+        'Zadanie 1',
+        'Zadanie 2',
+        'Zadanie 3'
+    ];
+    return view('test.onas',[ 'zadania' => $zadania]);
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
