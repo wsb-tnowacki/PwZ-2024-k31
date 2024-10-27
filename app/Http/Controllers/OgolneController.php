@@ -27,4 +27,9 @@ class OgolneController extends Controller
         return view('ogolne.onas', compact('zadania'));
         //return view('ogolne.onas')->with('zadania' , $zadania);
     }
+
+    public function test(string $post, string $id)
+    {
+        return "Test post: '$post', id '$id'";
+    }
 }
