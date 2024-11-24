@@ -73,7 +73,7 @@
                                     </svg>
                                 </div>
                                 @if(session()->has('message'))
-                                <div class="alert alert-@if(session()->has('class')){{session()->get('class')}}@else{{'success'}}@endif alert-dismissible fade show">
+                                <div class="mt-2 alert alert-@if(session()->has('class')){{session()->get('class')}}@else{{'success'}}@endif alert-dismissible fade show">
                                     <strong>{{session()->get('message')}}</strong>
                                     <button type="button" class="btn-close " data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>

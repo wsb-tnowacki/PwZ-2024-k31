@@ -25,6 +25,21 @@
             <label for="tresc">Treść</label>
             <textarea class="form-control" name="tresc" id="tresc" cols="4" disabled>{{$post->tresc}}</textarea>    
         </div>
-        <a href="{{route('post.index')}}"><button class="btn btn-primary form-btn mt-3" type="submit">Powrót do listy</button></a> 
+        <div class="d-flex">
+            <a href="{{route('post.edit', $post->id)}}"><button class="btn btn-success form-btn m-1">Edytuj post</button></a>
+            <form action="{{route('post.destroy',$post->id)}}" method="post" onsubmit="return confirmDelete()">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger form-btn m-1" type="submit">Usuń post</button>
+            </form>
+        </div>
+        <a href="{{route('post.index')}}"><button class="btn btn-primary form-btn m-1" type="submit">Powrót do listy</button></a> 
+
+        <script>
+            function confirmDelete()
+            {
+                return confirm('Czy na pewno usunąć ten post? ')
+            }
+        </script>
 @endisset
 @endsection

@@ -30,11 +30,18 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $post = new Post();
-        $post->tytul = $request['tytul'];
+/*         $post->tytul = $request['tytul'];
         $post->autor = request('autor');
         $post->email = request('email');
         $post->tresc = request('tresc');
-        $post->save();
+        $post->save(); */
+        $request->validate([
+            'tytul' => 'required|min:3|max:200',
+            'autor' => ['required','min:4','max:100'],
+            'email' => ['required','email:rfc,dns','max:200'],
+            'tresc' => ['required','min:5']
+        ]);
+        $post->create($request->all());
         return redirect()->route('post.index')->with('message','Dodano poprawnie post');
     }
 
@@ -51,7 +58,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return "edit $post";
+        return view('post.edytuj', compact('post'));
     }
 
     /**
@@ -59,7 +66,8 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        return "update request: $request, id: $post";
+        $post->update($request->all());
+        return redirect()->route('post.index')->with('message','Zmieniono poprawnie post');
     }
 
     /**
@@ -67,6 +75,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        return "destroy $post";
+        $post->delete();
+        return redirect()->route('post.index')->with('message','Usunięto poprawnie post')->with('class', 'danger');
     }
 }
