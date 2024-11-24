@@ -29,4 +29,14 @@ class PostStoreRequest extends FormRequest
             
         ];
     }
+    public function messages() :array
+    {
+        return [
+            'required' => 'Pole wymagane',
+            'min' => 'Minimalna ilość znaków to :min',
+            'max' => 'Maksymalna ilość znaków to :max',
+            'email' => 'Nieprawidłowy email'
+            
+        ];
+    }
 }
