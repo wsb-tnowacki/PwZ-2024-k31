@@ -20,7 +20,7 @@
                 <tr>                    
                     <td>{{$lp++}}</td>
                     <td><a href="{{route('post.show', $post->id)}}">{{$post->tytul}}</a></td>
-                    <td>{{$post->autor}}</td>
+                    <td>{{$post->user->name}}</td>
                     <td>{{date('j F Y',strtotime($post->created_at))}}</td>
                     <td class="d-flex">
                         <a href="{{route('post.edit', $post->id)}}"><button class="btn btn-success form-btn m-1">E</button></a>
