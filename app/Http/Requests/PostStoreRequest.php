@@ -29,7 +29,7 @@ class PostStoreRequest extends FormRequest
             
         ];
     }
-    public function messages() :array
+/*     public function messages() :array
     {
         return [
             'required' => 'Pole wymagane',
@@ -38,5 +38,5 @@ class PostStoreRequest extends FormRequest
             'email' => 'Nieprawidłowy email'
             
         ];
-    }
+    } */
 }
